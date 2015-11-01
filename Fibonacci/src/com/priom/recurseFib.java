@@ -10,12 +10,17 @@ public class recurseFib {
         Scanner k = new Scanner (System.in);
         System.out.print ("Enter a value of N: ");
         int n = k.nextInt();
-        System.out.println ("Fibonacci value of " + n + " is " + fibRecurse (n) + ".");
-        System.out.printf ("Recursion Addition %d, Subtraction %d, Multiplication %d", recAdd, recSub, recSub);
+        if (n < 0) {
+            System.out.println ("Error! N Must be positive number.");
+        }
+        for (int i = 1; i <= n; i++) {
+            System.out.println ("Fibonacci value of " + i + "th element is " + fibRecurse (i-1) + ".");
+        }
+        System.out.printf ("Recursion Addition %d, Subtraction %d, Multiplication %d.", recAdd, recSub, recMul);
     }
 
     public static int fibRecurse (int n) {
-        if (n <= 0) {
+        if (n == 0) {
             return 0;
         }
 
