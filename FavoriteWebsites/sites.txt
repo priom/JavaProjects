@@ -1,0 +1,13 @@
+cisco: www.cisco.com
+gmail: www.gmail.com
+dota: www.dota.com
+microsoft: www.microsoft.com
+samsung: www.samsung.com
+sony: www.sony.com
+lg: www.lg.com
+safs: www.safs.com
+dsfdsf: www.dsfdsf.comasfs: www.asfs.com
+afsfsfdfd: www.afsfsfdfd.com
+sfsdfs: www.sfsdfs.com
+afsdfdsf: www.afsdfdsf.com
+linkedin: www.linkedin.com
