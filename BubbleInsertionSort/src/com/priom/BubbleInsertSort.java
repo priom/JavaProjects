@@ -1,7 +1,9 @@
 //Nrimoni Chowdhury - A00371596
-//Methew Guda -
+//Methew Guda - A00381751
 
 package com.priom;
+
+import java.util.*;
 
 public class BubbleInsertSort {
     public static int bubbCompCount = 0;
@@ -12,47 +14,45 @@ public class BubbleInsertSort {
     public static int insrtSwapCount = 0;
 
     public static void main(String[] args) {
-        int n[] = {16, 10, 12, 5, 6, 14, 3, 7, 9, 8, 11, 15, 13, 12, 14, 1};
-        System.out.print("UNSORTED List: ");
-        for (int x = 0; x < n.length; x++) {
-            System.out.print (n[x] + " ");
+        //Generate random list
+        Random random = new Random();
+        int r[] = new int[16];
+        int r2[] = new int[16];
+        for (int m = 0; m < r.length; m++) {
+            r[m] = random.nextInt(500);
+            r2[m] = r[m];
         }
-        System.out.println ();
-        System.out.println ();
-
 //        Print BUBBLE sorted list
-        bubbleSort (n);
-        System.out.print ("BUBBLE Sorted List: ");
-        for (int y = 0; y < n.length; y++) {
-            System.out.print (n[y] + " ");
+        bubbleSort(r);
+        System.out.print("BUBBLE Sorted List: ");
+        for (int p = 0; p < r.length; p++) {
+            System.out.print (r[p] + " ");
         }
-        System.out.println ();
-        System.out.printf ("BUBBLE Sort: Comparison: %d, Swaps: %d, Passes: %d.", bubbCompCount, bubbSwapCount, bubbPassCount);
+        System.out.println();
+        System.out.printf("BUBBLE Sort: Comparison: %d, Swaps: %d, Passes: %d.",
+                bubbCompCount, bubbSwapCount, bubbPassCount);
 
 //        Print INSERTION sorted list
-        System.out.println ();
-        System.out.println ();
-
-        insertSort (n);
-        System.out.print ("INSERTION Sorted List: ");
-        for (int z = 0; z < n.length; z++) {
-            System.out.print (n[z] + " ");
+        insertSort(r2);
+        System.out.println();
+        System.out.println();
+        System.out.print("INSERTION Sorted List: ");
+        for (int q = 0; q < r.length; q++) {
+            System.out.print (r[q] + " ");
         }
         System.out.println ();
-        System.out.printf ("INSERTION Sort: Comparison: %d, Swaps: %d.", insrtCompCount, insrtSwapCount);
+        System.out.printf ("INSERTION Sort: Comparison: %d, Swaps: %d.",
+                insrtCompCount, insrtSwapCount);
         System.out.println ();
 
     }
-//    Iterative function for bubble sort
+//    Iterative function for BUBBLE sort
     public static void bubbleSort(int a[]) {
         for (int i = 1; i < a.length; i++) {
             for (int j = 0; j < a.length-1; j++) {
-                //Bubble sort comparison counter
                 bubbCompCount = (a.length * (a.length-1)) / 2;
                 if (a[j] > a[j+1]) {
-                    //Bubble sort swap counter
                     bubbSwapCount++;
-                    //Bubble sort pass counter
                     bubbPassCount = a.length - 1;
                     int temp = a[j];
                     a[j] = a[j+1];
@@ -62,20 +62,20 @@ public class BubbleInsertSort {
         }
     } //end func
 
-    //    Iterative function for insertion sort
+    //    Iterative function for INSERTION sort
     public static void insertSort(int b[]) {
-        int item, pos;
-        int list[] = new int[b.length];
-        for (int i = 2; i < b.length; i++) {
-            item = list[i];
-            pos = i - 1;
-            insrtCompCount = (b.length * (b.length - 1)) / 4;
-            insrtSwapCount++;
-            while ((pos >= 1) && (list[pos] > item)) {
-                list[pos + 1] = list[pos];
-                pos--;
+        for(int i = 0; i<b.length; i++) {
+            int temp = b[i];
+            int j;
+            for(j = i-1; j >= 0 && temp < b[j]; j--)
+            {
+                b[j+1] = b[j];
+                insrtSwapCount++;
+                insrtCompCount++;
             }
-            list[pos + 1] = item;
+            b[j+1] = temp;
+            insrtCompCount++;
         }
     } //end func
-}
+} //end class
+
